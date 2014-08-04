@@ -1,0 +1,45 @@
+
+
+
+    <!-- INTRO-->
+    <!--===============================================================-->
+    <div class="bg-intro-blog" id="home">
+      <div class="layer-intro-blog">
+      </div>
+      <p id="notice"><%= notice %></p>
+    </div>
+
+    <!-- BLOG-->
+    <!--===============================================================-->
+    <div class="bg-post">
+      <div class="container">
+        <div class="row row-blog">
+          <div class="col-md-8 col-md-offset-2 wrapper-blog">
+
+            <div class="row">
+              <div class="col-sm-12">
+                <h1 class="title-post"><%= @post.title %></h1>
+                <p class="small author">BY <span class="green">JODY ALBRITTON</span> · <%= @post.published_at.strftime("%B %d, %Y")%></p>
+                  
+                <%= markdown @post.content %>
+              </div>
+            </div>
+
+           
+            <!-- DISQUS ROW -->
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="wrapper-disqus">
+                  <!-- YOUR DISQUS CODE -->
+
+                  <!-- YOUR DISQUS CODE END -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+

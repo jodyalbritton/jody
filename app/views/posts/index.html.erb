@@ -1,0 +1,50 @@
+<!-- INTRO-->
+    <!--===============================================================-->
+    <div class="bg-intro-blog" id="home">
+      <div class="layer-intro-blog">
+      </div>
+    </div>
+
+    <!-- BLOG-->
+    <!--===============================================================-->
+    <div class="bg-post">
+      <div class="container">
+
+        <div class="row row-blog">
+          <div class="col-md-8 col-md-offset-2 wrapper-blog">
+
+            <div class="row">
+              <% @posts.each do |post| %>
+                <div class="col-sm-12">
+                  <%= link_to post_url(post) do %>
+                  <h1 class="title-post"><%= post.title %></h1>
+                  <% end %>
+                  <p class="small author">BY <span class="green">Jody Albritton</span> ·  <%= post.published_at.strftime("%B %d, %Y")%></p>
+                  <p><%= post.summary.first(200) %></p>
+                  <% if user_signed_in? %>
+                    <% if current_user.has_role :admin %>
+                      <%= link_to "Read More", post_url(post), :class=> "btn btn-default" %><br>
+                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %> - <%= link_to 'Edit', edit_post_path(post) %>
+                    <% end %>
+                  <% end %>
+                  <hr>
+                  
+                </div>
+              <% end %>
+            </div>
+
+            
+
+            <div class="row">
+              <div class="col-sm-12 col-pagination">
+                <%= paginate @posts %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+

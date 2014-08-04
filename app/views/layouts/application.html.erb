@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jody Albritton</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+  <!-- NAVBAR-->
+  <!--===============================================================-->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to root_url,  :class=>"navbar-brand" do %><%= image_tag "logo.png" %><% end %>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_url %> </li>
+            <li><%= link_to "Blog", posts_url %> </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%= yield %>
+    
+    <!-- FOOTER-->
+    <!--===============================================================-->
+    <div class="bg-footer">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-sm-12">
+            <a href="http://www.facebook.com/jodymalbritton"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/jodyalbritton"><i class="fa fa-twitter"></i></a>
+            <a href="http://github.com/jodyalbritton"><i class="fa fa-github"></i></a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER-BOTTOM-->
+    <!--===============================================================-->
+    <div class="bg-footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="copyright">2014 &copy; Jody Albritton - All Rights Reserved</p>
+          </div>
+          <div class="col-sm-6">
+            <ul class="list-inline pull-right">
+              <li class="border-right"><a href="#home" data-scroll>Top</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</body>
+</html>

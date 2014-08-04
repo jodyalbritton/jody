@@ -1,0 +1,43 @@
+<%= form_for(@post, :form_html => {:class=> "form-horizontal panel"}) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :class=> "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :published_at %><br>
+    <%= f.date_field :published_at, :class=> "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br>
+    <%= f.text_field :summary, :class=> "form-control" %>
+  </div>
+  <div class="form-group" id="epiceditor">
+    
+  </div>
+  <%= f.hidden_field :content, :class=> "form-control" %>
+  <div class="panel-footer text-right">
+    <%= f.submit :class=> "btn btn-default" %>
+  </div>
+<% end %>
+
+<script>
+  
+  var opts = {
+  textarea: 'post_content',
+  autogrow: true
+  }
+  var editor = new EpicEditor(opts).load();
+
+</script>
