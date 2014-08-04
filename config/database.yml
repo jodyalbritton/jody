@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: jody_production
-  username: jody
+  username: root
   password: <%= ENV['JODY_DATABASE_PASSWORD'] %>
