@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
 
   # GET /posts
   # GET /posts.json
   def index
-   @posts = Post.all.order(:published_at).page params[:page]
+   @posts = Post.all.order('published_at DESC').page params[:page]
   end
 
   # GET /posts/1
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
 
     @post = Post.new
     authorize_action_for(@post)
+    
   end
 
   # GET /posts/1/edit
