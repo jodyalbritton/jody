@@ -1,5 +1,20 @@
 
+<% content_for :page_title,  "Jody's Blog | "+ @post.title %>
+<% content_for :page_description, @post.summary  %>
 
+<% content_for :meta_tags do %>
+<!-- Twitter Card data --> 
+<meta name="twitter:card" value="<%= @post.summary %>">
+
+<!-- Open Graph data --> 
+
+<meta property="og:title" content="<%= @post.title %>" /> 
+<meta property="og:site_name" content="Jody's Blog">
+<meta property="og:type" content="blog">
+
+
+  
+<% end %>
 
     <!-- INTRO-->
     <!--===============================================================-->
