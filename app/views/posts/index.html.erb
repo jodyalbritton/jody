@@ -22,7 +22,7 @@
                   <p class="small author">BY <span class="green">Jody Albritton</span> ·  <%= post.published_at.strftime("%B %d, %Y")%></p>
                   <p><%= post.summary.first(200) %></p>
                   <% if user_signed_in? %>
-                    <% if current_user.has_role :admin %>
+                    <% if current_user.has_role? :admin %>
                       <%= link_to "Read More", post_url(post), :class=> "btn btn-default" %><br>
                       <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %> - <%= link_to 'Edit', edit_post_path(post) %>
                     <% end %>
